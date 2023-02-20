@@ -42,4 +42,5 @@ In the project directory, you can run:
 - Typescript: to validate structures
 - Accessibility: keyboard, colors, readers
 - Error handlers, boundary loggers
+- Pre-commit or PR hooks
 

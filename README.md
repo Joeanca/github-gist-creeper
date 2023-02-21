@@ -1,10 +1,10 @@
 # Github GIST Creeper
 ~This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)~
-
+This project aims to query the github gists for a single user and display specific data for a specific gist as listed in the main requirements section of this readme.
 
 
 ## To run:
-Developed in Node Version: 18 Hydrogen LTS
+Developed in Node Version: 18 Hydrogen LTS.
 
 
 ### Available Scripts
@@ -31,11 +31,11 @@ In the project directory, you can run:
 - [ ] Lint
 
 ## Things to lookout for:
-- Validation of input to prevent SQL injection
+- Validation of input to prevent SQL injection.
 
 ## Main requirements
 - [ ] The application should follow a plan and if constrained by time, mention the potential improvements rather than spending excessive time on them. 
-- [ ] When a user enters a username, it should be able to get a full list of public Gists by that user 
+- [ ] When a user enters a username, it should be able to get a full list of public Gists by that user.
 - [ ] Filetype: Convert the filetypes of the files in the gist into a tag/badge,(e.g, if the returned gist has list of files containing python and JavaScript files, the gist should have the respective tags/badges)
 - [ ] Fork: Username/Avatar of the last 3 users who forked it with avatar linking to the fork.
 

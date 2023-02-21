@@ -19,10 +19,12 @@ In the project directory, you can run:
 
 ## The plan:
 - [X] Choose base framework: CRA chosen
-- [ ] Evaluate APIs available which will support queries required
-- [ ] Choose architecture/design
-- [ ] Choose query method/library which will support said queries
-- [ ] Choose framework which will  accomplish the task and not over-engineer the solution
+- [X] Evaluate APIs available which will support queries required: github graphql does the job
+- [X] Choose architecture/design: mixture of provider, HOCs, Render-props
+- [X] Choose query method/library which will support said queries: tanstack query v4 & graphql-request
+- [X] Choose framework which will  accomplish the task and not over-engineer the solution: CRA due to ease and time limits
+- [ ] POC for initial query
+- [ ] Work through questions
 - [ ] Tests
   - [ ] API
   - [ ] Render

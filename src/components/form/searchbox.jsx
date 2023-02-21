@@ -15,27 +15,32 @@ import { GraphQLClient, gql } from 'graphql-request'
 import inputStyle from './input-style';
 import { AppContext } from '../../context/app-context';
 import {userGistsWithForks} from '../../api/queries/get-user-gists.js';
+import {endpoint} from '../../constants/constants';
 
-const endpoint = `https://api.github.com/graphql`;
 const graphQLClient = new GraphQLClient(endpoint)
 
 const SearchBox = () => {
   const [input, setInput] = useState('MohamedAlaa')
-  const [token, _] = useContext(AppContext);
+  const {token, userData} = useContext(AppContext);
+  const [tokenValue] = token;
+  const [, setUserDataValue] = userData;
 
   graphQLClient.setHeaders({
-    authorization: `Bearer ${token}`,
+    authorization: `Bearer ${tokenValue}`,
   });
   
   const handleInputChange = (e) => setInput(e.target.value);
 
-  const { isInitialLoading, error, data, refetch, isFetching } = useQuery({
+  const { isInitialLoading, error, refetch, isFetching } = useQuery({
     queryKey: ['repoData'],
     queryFn: () =>
       graphQLClient.request(
         userGistsWithForks,
         {username: input}
-      ),
+      ).then(data => {
+        setUserDataValue(data);
+        return data;
+      }),
       enabled: false,
     }
   )
@@ -44,8 +49,6 @@ const SearchBox = () => {
 
   if (isInitialLoading || isFetching) return 'Loading...'
   if (error) return 'An error has occurred: ' + error.message
-  
-  const isError = input === '';
 
   return (
     <Flex style={inputStyle}>
@@ -57,12 +60,6 @@ const SearchBox = () => {
           </FormHelperText>
         <Button onClick={refetch}>Search</Button>
       </FormControl>
-      {data && <ul>{
-        data.user?.gists?.edges?.map(
-            (e, i) => e?.node && 
-              <Text key={`gist-${e?.node?.id}`} >{e.node.description}</Text>
-        )}
-      </ul>}
     </Flex>
   )
 };

@@ -12,12 +12,15 @@ const gistList = (gists) => gists.map(
 
 const GistContainer = ({ userData }) => {
   const [userGists, setUserGists] = useState([]);
+  
   useEffect(() => {
     setUserGists(userData?.user?.gists?.edges || []);
-  }, [userData?.id, userData?.user?.gists?.edges])
+  }, [userData?.id, userData?.user?.gists?.edges]);
+
+  if (!userData?.user) return null
   return (
     <VStack>
-      <GithubUserAvatar url={userData.user.avatarUrl} userName={userData.user.login} bio={userData.user.bio} />
+      <GithubUserAvatar url={userData?.user?.avatarUrl} userName={userData.user.login} bio={userData.user.bio} />
       <Divider paddingTop={2} />  
       <Heading noOfLines={1} padding={4} size='lg'>
         {`${userData.user.login} Gists`}

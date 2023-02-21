@@ -34,6 +34,9 @@ export const userGistsWithForks = gql`
               edges{
                 node{
                   name
+                  id
+                  url
+                  createdAt
                   owner{
                     avatarUrl
                     login

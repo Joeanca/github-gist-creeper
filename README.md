@@ -1,5 +1,4 @@
 # Github GIST Creeper
-~This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)~
 This project aims to query the github gists for a single user and display specific data for a specific gist as listed in the main requirements section of this readme.
 
 ## Things to note
@@ -63,4 +62,5 @@ In the project directory, you can run:
 - Pre-commit or PR hooks
 
 ## Credits
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 - Language colours extracted from [ozh](https://raw.githubusercontent.com/ozh/github-colors/master/colors.json)

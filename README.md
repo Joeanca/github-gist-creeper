@@ -23,8 +23,16 @@ In the project directory, you can run:
 - [X] Choose architecture/design: mixture of provider, HOCs, Render-props
 - [X] Choose query method/library which will support said queries: tanstack query v4 & graphql-request
 - [X] Choose framework which will  accomplish the task and not over-engineer the solution: CRA due to ease and time limits
-- [ ] POC for initial query
+- [X] POC for initial query
+- [X] Implement Token, Context
+- [ ] Document requirements for Github Token
+- [X] Abstract query to own component for maintainability and reusability
 - [ ] Work through questions
+  - [ ] Fetch more button
+  - [ ] Define fields of basic details to show on full list of public Gists (collapsed)
+  - [ ] Define design of the expanded data
+      - [ ] badges/tag (chips?) for filetypes
+      - [ ] Username/Avatar of the last 3 users who forked it with avatar linking to the fork
 - [ ] Tests
   - [ ] API
   - [ ] Render
@@ -34,7 +42,7 @@ In the project directory, you can run:
 - Validation of input to prevent SQL injection.
 
 ## Main requirements
-- [ ] The application should follow a plan and if constrained by time, mention the potential improvements rather than spending excessive time on them. 
+- [X] The application should follow a plan and if constrained by time, mention the potential improvements rather than spending excessive time on them. 
 - [ ] When a user enters a username, it should be able to get a full list of public Gists by that user.
 - [ ] Filetype: Convert the filetypes of the files in the gist into a tag/badge,(e.g, if the returned gist has list of files containing python and JavaScript files, the gist should have the respective tags/badges)
 - [ ] Fork: Username/Avatar of the last 3 users who forked it with avatar linking to the fork.

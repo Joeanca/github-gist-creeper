@@ -33,11 +33,11 @@ In the project directory, you can run:
 - [X] Choose framework which will  accomplish the task and not over-engineer the solution: CRA due to ease and time limits
 - [X] POC for initial query
 - [X] Implement Token, Context
-- [ ] Document requirements for Github Token
+- [X] Document requirements for Github Token
 - [X] Abstract query to own component for maintainability and reusability
-- [ ] Abstract base URL and headers
-- [ ] Work through questions
-  - [ ] ~~Fetch more button~~ (decided against since most users will have less than 100)
+- [-] ~~Abstract base URL and headers~~ (left as TODO)
+- [X] Work through questions
+  - [-] ~~Fetch more button~~ (decided against since most users will have less than 100)
   - [X] Define fields of basic details to show on full list of public Gists (collapsed)
   - [X] Define design of the expanded data
       - [X] badges/tag (chips?) for filetypes

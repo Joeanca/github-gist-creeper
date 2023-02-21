@@ -54,3 +54,5 @@ In the project directory, you can run:
 - Error handlers, boundary loggers
 - Pre-commit or PR hooks
 
+## Credits
+- Language colours extracted from [ozh](https://raw.githubusercontent.com/ozh/github-colors/master/colors.json)

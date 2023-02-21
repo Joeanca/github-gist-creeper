@@ -3,6 +3,10 @@ import { gql } from 'graphql-request'
 export const userGistsWithForks = gql`
   query getUserGistsWithForks($username: String!){
     user(login: $username) {
+      avatarUrl
+      id
+      bio
+      login
       gists(last: 100, orderBy: {field: CREATED_AT, direction: DESC}) {
         totalCount
         pageInfo {

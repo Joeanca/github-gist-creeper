@@ -1,6 +1,10 @@
 {
   "data": {
     "user": {
+      "avatarUrl": "https://avatars.githubusercontent.com/u/757833?u=6b9962da22c26457bbf245ff68f37a7cf0a3e220&v=4",
+      "id": "MDQ6VXNlcjc1NzgzMw==",
+      "bio": "Problem Solver, Egyptian, Father and Director of Software Development @LinioIT Rocket Internet AG Venture Located in Latin America.",
+      "login": "MohamedAlaa",
       "gists": {
         "totalCount": 16,
         "pageInfo": {
@@ -45,16 +49,6 @@
                         "avatarUrl": "https://avatars.githubusercontent.com/u/16330975?u=d8b9b00ca348aa271020105881c96a23742db239&v=4",
                         "login": "verticaio"
                       }
-                    }
-                  }
-                ]
-              },
-              "stargazers": {
-                "totalCount": 1,
-                "edges": [
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjMwOTkwMzQ="
                     }
                   }
                 ]
@@ -103,10 +97,6 @@
               "forks": {
                 "totalCount": 0,
                 "edges": []
-              },
-              "stargazers": {
-                "totalCount": 0,
-                "edges": []
               }
             }
           },
@@ -128,16 +118,6 @@
               "forks": {
                 "totalCount": 0,
                 "edges": []
-              },
-              "stargazers": {
-                "totalCount": 1,
-                "edges": [
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjIwMDQ0MzU1"
-                    }
-                  }
-                ]
               }
             }
           },
@@ -190,31 +170,6 @@
                     }
                   }
                 ]
-              },
-              "stargazers": {
-                "totalCount": 31,
-                "edges": [
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjk5NTc3NTc="
-                    }
-                  },
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjEwNzE5NDk1"
-                    }
-                  },
-                  {
-                    "node": {
-                      "id": "U_kgDOBYt9Xw"
-                    }
-                  },
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjI5Mjg0NDA0"
-                    }
-                  }
-                ]
               }
             }
           },
@@ -255,31 +210,6 @@
                         "avatarUrl": "https://avatars.githubusercontent.com/u/623510?v=4",
                         "login": "ahmed1490"
                       }
-                    }
-                  }
-                ]
-              },
-              "stargazers": {
-                "totalCount": 6,
-                "edges": [
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjExOTg5MjM="
-                    }
-                  },
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjYyMzUxMA=="
-                    }
-                  },
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjEyMjkzMzc3"
-                    }
-                  },
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjMwOTkwMzQ="
                     }
                   }
                 ]
@@ -335,16 +265,6 @@
                     }
                   }
                 ]
-              },
-              "stargazers": {
-                "totalCount": 1,
-                "edges": [
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjE3MzE0ODk="
-                    }
-                  }
-                ]
               }
             }
           },
@@ -367,10 +287,6 @@
                 }
               ],
               "forks": {
-                "totalCount": 0,
-                "edges": []
-              },
-              "stargazers": {
                 "totalCount": 0,
                 "edges": []
               }
@@ -397,10 +313,6 @@
               "forks": {
                 "totalCount": 0,
                 "edges": []
-              },
-              "stargazers": {
-                "totalCount": 0,
-                "edges": []
               }
             }
           },
@@ -425,16 +337,6 @@
               "forks": {
                 "totalCount": 0,
                 "edges": []
-              },
-              "stargazers": {
-                "totalCount": 1,
-                "edges": [
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjE3NTMyOTY="
-                    }
-                  }
-                ]
               }
             }
           },
@@ -457,10 +359,6 @@
                 }
               ],
               "forks": {
-                "totalCount": 0,
-                "edges": []
-              },
-              "stargazers": {
                 "totalCount": 0,
                 "edges": []
               }
@@ -487,16 +385,6 @@
               "forks": {
                 "totalCount": 0,
                 "edges": []
-              },
-              "stargazers": {
-                "totalCount": 1,
-                "edges": [
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjU0NDAz"
-                    }
-                  }
-                ]
               }
             }
           },
@@ -549,10 +437,6 @@
                     }
                   }
                 ]
-              },
-              "stargazers": {
-                "totalCount": 0,
-                "edges": []
               }
             }
           },
@@ -594,16 +478,6 @@
                     }
                   }
                 ]
-              },
-              "stargazers": {
-                "totalCount": 1,
-                "edges": [
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjM5MTI5OQ=="
-                    }
-                  }
-                ]
               }
             }
           },
@@ -626,10 +500,6 @@
                 }
               ],
               "forks": {
-                "totalCount": 0,
-                "edges": []
-              },
-              "stargazers": {
                 "totalCount": 0,
                 "edges": []
               }
@@ -660,16 +530,6 @@
                         "avatarUrl": "https://avatars.githubusercontent.com/u/391299?v=4",
                         "login": "JT5D"
                       }
-                    }
-                  }
-                ]
-              },
-              "stargazers": {
-                "totalCount": 1,
-                "edges": [
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjM5MTI5OQ=="
                     }
                   }
                 ]
@@ -722,31 +582,6 @@
                         "avatarUrl": "https://avatars.githubusercontent.com/u/74038557?u=9468d0abfbd3b66d62de986ea5fcf11f5bd960dc&v=4",
                         "login": "azizulwahid"
                       }
-                    }
-                  }
-                ]
-              },
-              "stargazers": {
-                "totalCount": 13869,
-                "edges": [
-                  {
-                    "node": {
-                      "id": "U_kgDOBjob8Q"
-                    }
-                  },
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjYyMTgzMTY="
-                    }
-                  },
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjE3OTUxNDY3"
-                    }
-                  },
-                  {
-                    "node": {
-                      "id": "MDQ6VXNlcjIyMzkyNzkx"
                     }
                   }
                 ]

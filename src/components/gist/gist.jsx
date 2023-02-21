@@ -8,7 +8,8 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 
-const Gist = () => {
+const Gist = ({gistData}) => {
+  console.log(gistData)
   return (
     <AccordionItem>
       <h2>

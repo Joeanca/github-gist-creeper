@@ -14,7 +14,7 @@ import { GraphQLClient, gql } from 'graphql-request'
 
 import inputStyle from './input-style';
 import { AppContext } from '../../context/app-context';
-import {userGistsWithForks} from '../../api/queries/gists';
+import {userGistsWithForks} from '../../api/queries/get-user-gists.js';
 
 const endpoint = `https://api.github.com/graphql`;
 const graphQLClient = new GraphQLClient(endpoint)

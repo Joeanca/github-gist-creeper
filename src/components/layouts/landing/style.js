@@ -1,5 +1,5 @@
 const flexLayout = {
-  height: "100vh",
+  height: "100%",
   align:"center",
   justifyContent:"center"
 }

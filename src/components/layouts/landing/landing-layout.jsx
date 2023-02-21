@@ -1,5 +1,5 @@
 import React from "react";
-import { VStack, Heading } from "@chakra-ui/react";
+import { VStack, Heading, StackDivider } from "@chakra-ui/react";
 import flexLayout from "./style";
 
 export default function LandingLayout(props) {
@@ -7,6 +7,7 @@ export default function LandingLayout(props) {
     <VStack
       style={flexLayout}
       {...props}
+      divider={<StackDivider borderColor='gray.200' />}
     >
         <Heading
           as="h1"

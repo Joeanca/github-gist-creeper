@@ -1,12 +1,14 @@
 import {
-  Accordion, Heading, VStack,
+  Accordion, Divider, Heading, VStack,
 } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import GithubUserAvatar from '../github-user/user';
 
 import Gist from './gist';
 
-const gistList = (gists) => gists.map(gistData => <Gist gistData={gistData.node} key={gistData?.node.id} />)
+const gistList = (gists) => gists.map(
+  (gistData, index) => <Gist gistData={gistData?.node || null} key={gistData?.node?.id || index} />
+);
 
 const GistContainer = ({ userData }) => {
   const [userGists, setUserGists] = useState([]);
@@ -16,7 +18,8 @@ const GistContainer = ({ userData }) => {
   return (
     <VStack>
       <GithubUserAvatar url={userData.user.avatarUrl} userName={userData.user.login} bio={userData.user.bio} />
-      <Heading noOfLines={1}>
+      <Divider paddingTop={2} />  
+      <Heading noOfLines={1} padding={4} size='lg'>
         {`${userData.user.login} Gists`}
       </Heading>
       <Accordion defaultIndex={[0]} allowToggle w='100%'>

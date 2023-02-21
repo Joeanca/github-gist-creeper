@@ -4,11 +4,12 @@ import {
   Stack,
   CardBody,
   Heading,
-  Text
+  Text,
+
 } from '@chakra-ui/react';
 import React from 'react';
 
-const GithubUserAvatar = ({ userName, url, bio }) => (
+const GithubUserAvatar = ({ userName, url, bio, link }) => (
   <Card
     direction={{ base: 'column', sm: 'row' }}
     overflow='hidden'

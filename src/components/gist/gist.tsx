@@ -13,10 +13,11 @@ import {
   CardHeader,
 } from '@chakra-ui/react';
 import React, { memo } from 'react';
+import { GistNode } from '../../interfaces/gist';
 import GistFileTypes from './gist-filetypes';
 import GistTabs from './gist-tabs';
 
-const Gist = ({ gistData }) => {
+const Gist = ({ gistData }:{gistData: GistNode['node']}) => {
   return (
     <AccordionItem>
       <h2>
@@ -38,13 +39,13 @@ const Gist = ({ gistData }) => {
           direction={{ base: 'column'}}
           variant='unstyled'
         >
-          <CardHeader size='sm' padding={4}>
+          <CardHeader padding={4}>
             <Text>Description: {gistData.description || 'N/A'}</Text>
           </CardHeader>
           <CardBody>
             <Grid templateColumns='repeat(8, 1fr)' gap={0}>
               <GridItem colSpan={2}>
-                <GistFileTypes languages={gistData.files} />
+                <GistFileTypes files={gistData.files} />
               </GridItem>
               <GridItem colSpan={6}>
                 <GistTabs forkDetails={gistData.forks?.edges || []} />

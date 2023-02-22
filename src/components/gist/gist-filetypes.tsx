@@ -2,16 +2,20 @@ import { Badge, Card, CardBody, CardHeader, Heading, Stack } from '@chakra-ui/re
 import React from 'react';
 
 import fileTypeColourMapping from '../../constants/github-language-colors.json';
+import { File, FileLanguage } from '../../interfaces/gist';
 
-const ColouredBadge = ({language}) =>  (
+const ColouredBadge = ({language}:{language: FileLanguage}) =>  (
   <Badge
-    color={`${fileTypeColourMapping[language?.name]?.color}` || '#083fa1'}
+    color={`${(fileTypeColourMapping as any)[language?.name]?.color}` || '#083fa1'}
     variant='outline'
   >{language?.name || 'N/A'}
   </Badge>
 );
 
-const GistFileTypes = ({ languages }) => {
+interface GistFileTypesProps {
+  files: File[]
+}
+const GistFileTypes = ({ files }:GistFileTypesProps) => {
   return (
     <Card h='100%'>
       <CardHeader>
@@ -19,7 +23,7 @@ const GistFileTypes = ({ languages }) => {
       </CardHeader>
       <CardBody>
         <Stack direction='column'>
-          {languages.map((file,idx) => (
+          {files.map((file,idx) => (
             <ColouredBadge 
               language={file?.language || {}} 
               key={`${idx}-${file.language}`}

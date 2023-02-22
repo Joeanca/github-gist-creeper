@@ -3,5 +3,5 @@ const inputStyle = {
   rounded: 6,
   width:'100%'
 }
-
-export default inputStyle;
+ export default inputStyle;
+ 

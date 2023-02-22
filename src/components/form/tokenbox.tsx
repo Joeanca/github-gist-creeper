@@ -20,29 +20,29 @@ import { TokenContext } from '../../context/token-context';
 import inputStyle from './input-style';
 
 const TokenBox = () => {
-  const { token } = useContext(TokenContext);
-  const [tokenValue, setTokenValue] = token;
-  const [input, setInput] = useState(tokenValue);
+  const { token, setToken } = useContext(TokenContext);
+  // const [tokenValue, setTokenValue] = token;
+  const [input, setInput] = useState(token);
   
-  const handleInputChange = (e) => setInput(e.target.value);
+  const handleInputChange = (e: any) => setInput(e.target.value);
 
   const updateToken = () => {
-    setTokenValue(input);
+    setToken(input);
   }
 
   return (
-    <Accordion width='100%' allowToggle defaultIndex={tokenValue.length < 10 ? [0]: null}>
+    <Accordion width='100%' allowToggle defaultIndex={token.length < 10 ? [0]: -1}>
       <AccordionItem >
         <h2>
           <AccordionButton>
             <Box as="span" flex='1' textAlign='left' fontWeight='bold'>
-              {tokenValue.length < 10 ? 'Enter your token here to authenticate program' : 'Toggle to change your token'}
+              {token.length < 10 ? 'Enter your token here to authenticate program' : 'Toggle to change your token'}
             </Box>
             <AccordionIcon />
           </AccordionButton>
         </h2>
         <AccordionPanel pb={4}>
-          <Flex style={inputStyle} w='100%'>
+          <Flex style={(inputStyle as any)} w='100%'>
             <FormControl isRequired label='Please enter your github fine-grained-token'>
               <FormLabel>Github token</FormLabel>
               <Input type='text' onChange={handleInputChange} value={input} />

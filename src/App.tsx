@@ -18,9 +18,9 @@ function App() {
 
   return (
     <TokenContext.Provider value={{
-      token: [token, setToken]
+      token, setToken
     }}>
-      <UserContextProvider token={token}>
+      <UserContextProvider userDataInitial=''>
         <QueryClientProvider client={gitHubAPIClient}>
             <ChakraProvider theme={theme}>
               <CSSReset />

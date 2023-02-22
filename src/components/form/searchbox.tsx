@@ -25,14 +25,13 @@ const graphQLClient = new GraphQLClient(endpoint)
 const SearchBox = () => {
   const [input, setInput] = useState('MohamedAlaa')
   const {token} = useContext(TokenContext);
-  const [tokenValue] = token;
   const  {setUserData} = useUserData();
 
   graphQLClient.setHeaders({
-    authorization: `Bearer ${tokenValue}`,
+    authorization: `Bearer ${token}`,
   });
 
-  const handleInputChange = debounce((e) => setInput(e.target.value), 500);
+  const handleInputChange = debounce((e: any) => setInput(e.target.value), 500);
 
   useEffect(() => {
     setUserData(null);
@@ -54,10 +53,12 @@ const SearchBox = () => {
     }
   )
 
+  const errorMessage:string = (error as any)?.response?.errors[0]?.message
+
   if (!token || token.length < githubMinUserNameLength) return null;
 
   return (
-    <Grid style={inputStyle} >
+    <Grid style={(inputStyle as any)} >
       <GridItem w='100%'>
         <FormControl  isRequired label='Please enter the github username whose GISTS you would like to see' isInvalid={!!error}>
           <FormLabel>Github username</FormLabel>
@@ -66,7 +67,7 @@ const SearchBox = () => {
               Please enter the github username whose GISTS you would like to see
             </FormHelperText>
             <FormErrorMessage>
-              {(error && error?.response?.errors[0]?.message ) || 'an error occurred'}
+              {((error as any) && errorMessage ) || 'an error occurred'}
             </FormErrorMessage>
         </FormControl>
       </GridItem>

@@ -12,11 +12,13 @@ import {
   Link,
   Button
 } from '@chakra-ui/react'
+import React from 'react';
+import { Fork, ForkNode } from '../../interfaces/gist';
 import GithubUserAvatar from '../github-user/user';
 
-const FormattedGitTab = ({gistDetails}) => <Tab>{`${gistDetails?.owner?.login || 'N/A'}`.toUpperCase()}</Tab>;
+const FormattedGitTab = ({forkNode}:{forkNode: ForkNode}) => <Tab>{`${forkNode?.owner?.login || 'N/A'}`.toUpperCase()}</Tab>;
 
-const FormattedGitTabPanel = ({gistDetails}) => (
+const FormattedGitTabPanel = ({gistDetails}:{gistDetails: ForkNode}) => (
   <TabPanel>
     <GithubUserAvatar
       url={gistDetails?.owner?.avatarUrl || 'N/A'}
@@ -33,7 +35,7 @@ const FormattedGitTabPanel = ({gistDetails}) => (
   </TabPanel>
 );
 
-const GistTabs = ({ forkDetails }) => {
+const GistTabs = ({ forkDetails }:{forkDetails: Fork['edges']}) => {
   return (
     <Card h='100%'>
       <CardHeader>
@@ -43,7 +45,7 @@ const GistTabs = ({ forkDetails }) => {
         <Tabs isFitted variant='enclosed'>
           <TabList>
             {forkDetails.map(
-              fork => (<FormattedGitTab gistDetails={fork.node} key={fork.node.id} />)
+              fork => (<FormattedGitTab forkNode={fork.node} key={fork.node.id} />)
             )}
           </TabList>
           <TabPanels>gist

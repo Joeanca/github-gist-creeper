@@ -1,8 +1,8 @@
-import React from "react";
+import React, {PropsWithChildren} from "react";
 import { VStack, Heading, StackDivider } from "@chakra-ui/react";
 import landingStyle from "./style";
 
-export default function LandingLayout(props) {
+export default function LandingLayout(props: PropsWithChildren) {
   return (
     <VStack
       style={landingStyle.flexStyle}

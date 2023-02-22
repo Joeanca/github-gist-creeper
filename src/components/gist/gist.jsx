@@ -36,7 +36,6 @@ const Gist = ({ gistData }) => {
       <AccordionPanel pb={4}>
         <Card
           direction={{ base: 'column'}}
-          overflow='hidden'
           variant='unstyled'
         >
           <CardHeader size='sm' padding={4}>

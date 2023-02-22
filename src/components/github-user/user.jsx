@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 
-const GithubUserAvatar = ({ userName, url, bio, link }) => (
+const GithubUserAvatar = ({ userName, url, bio }) => (
   <Card
     direction={{ base: 'column', sm: 'row' }}
     overflow='hidden'

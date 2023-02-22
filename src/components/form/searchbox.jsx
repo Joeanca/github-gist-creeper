@@ -17,7 +17,7 @@ import inputStyle from './input-style';
 import { TokenContext } from '../../context/token-context';
 import { useUserData } from '../../context/user-context';
 import {userGistsWithForks} from '../../api/queries/get-user-gists.js';
-import {endpoint} from '../../constants/constants';
+import {endpoint, githubMinUserNameLength} from '../../constants/constants';
 import { debounce } from '../../utilities/input-utilities';
 
 const graphQLClient = new GraphQLClient(endpoint)
@@ -48,13 +48,13 @@ const SearchBox = () => {
         setUserData(data);
         return data;
       }),
-      enabled: input.length > 3,
+      enabled: input.length >= githubMinUserNameLength,
       refetchOnWindowFocus: false,
       refetchOnReconnect: false,
     }
   )
 
-  if (!token) return null;
+  if (!token || token.length < githubMinUserNameLength) return null;
 
   return (
     <Grid style={inputStyle} >

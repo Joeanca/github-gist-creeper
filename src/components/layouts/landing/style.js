@@ -1,7 +1,10 @@
-const flexLayout = {
-  height: "100%",
-  align:"center",
-  justifyContent:"center"
+const  landingStyle = {
+  flex: {
+    height: "100%",
+    width: "100%",
+    align:"center",
+    justifyContent:"center"
+  }
 }
 
-export default flexLayout;
+export default landingStyle;

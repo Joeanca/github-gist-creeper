@@ -12,7 +12,7 @@ import {
   CardBody,
   CardHeader,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { memo } from 'react';
 import GistFileTypes from './gist-filetypes';
 import GistTabs from './gist-tabs';
 
@@ -57,4 +57,4 @@ const Gist = ({ gistData }) => {
   )
 }
 
-export default Gist;
+export default memo(Gist);

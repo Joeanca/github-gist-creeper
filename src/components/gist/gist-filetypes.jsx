@@ -1,15 +1,14 @@
 import { Badge, Card, CardBody, CardHeader, Heading, Stack } from '@chakra-ui/react';
-import React, { memo } from 'react';
+import React from 'react';
 
 import fileTypeColourMapping from '../../constants/github-language-colors.json';
 
-const ColouredBadge = (files) => files.map((file,idx) => {
-  return <Badge
-    key={idx}
-    color={`${fileTypeColourMapping[file?.language?.name]?.color}` || '#083fa1'}
+const ColouredBadge = ({language}) =>  (
+  <Badge
+    color={`${fileTypeColourMapping[language?.name]?.color}` || '#083fa1'}
     variant='outline'
-  >{file?.language?.name || 'N/A'}</Badge>
-}
+  >{language?.name || 'N/A'}
+  </Badge>
 );
 
 const GistFileTypes = ({ languages }) => {
@@ -20,11 +19,16 @@ const GistFileTypes = ({ languages }) => {
       </CardHeader>
       <CardBody>
         <Stack direction='column'>
-          {ColouredBadge(languages)}
+          {languages.map((file,idx) => (
+            <ColouredBadge 
+              language={file?.language || {}} 
+              key={`${idx}-${file.language}`}
+            />)
+          )}
         </Stack>
       </CardBody>
     </Card>
   )
 }
 
-export default memo(GistFileTypes);
+export default GistFileTypes;

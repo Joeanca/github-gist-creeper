@@ -1,16 +1,29 @@
 import { LinkIcon } from '@chakra-ui/icons';
-import { Tabs, TabList, TabPanels, Tab, TabPanel, Card, CardBody, CardHeader, Heading, Link, Button, Text } from '@chakra-ui/react'
+import { 
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+  Card,
+  CardBody,
+  CardHeader,
+  Heading,
+  Link,
+  Button
+} from '@chakra-ui/react'
 import GithubUserAvatar from '../github-user/user';
 
-const tabList = (forkDetails) => forkDetails.map(fork => <Tab key={fork.node.id}>{`${fork.node.owner.login}`.toUpperCase()}</Tab>);
-const tabPanelList = (forkDetails) => forkDetails.map(fork => (
-  <TabPanel key={fork.node.id}>
-    <GithubUserAvatar 
-      url={fork.node.owner.avatarUrl}
-      userName={fork.node.owner.login}
+const FormattedGitTab = ({gistDetails}) => <Tab>{`${gistDetails?.owner?.login || 'N/A'}`.toUpperCase()}</Tab>;
+
+const FormattedGitTabPanel = ({gistDetails}) => (
+  <TabPanel>
+    <GithubUserAvatar
+      url={gistDetails?.owner?.avatarUrl || 'N/A'}
+      userName={gistDetails?.owner?.login || 'N/A'}
       bio={
         <>
-          <Link href={fork.node.url}>
+          <Link href={gistDetails?.url || 'N/A'}>
             <Button flex='1' variant='ghost' leftIcon={<LinkIcon />} >
               Visit Gist
             </Button> 
@@ -18,8 +31,7 @@ const tabPanelList = (forkDetails) => forkDetails.map(fork => (
         </>}
     />
   </TabPanel>
-));
-
+);
 
 const GistTabs = ({ forkDetails }) => {
   return (
@@ -30,10 +42,12 @@ const GistTabs = ({ forkDetails }) => {
       <CardBody paddingX={1}>
         <Tabs isFitted variant='enclosed'>
           <TabList>
-            {tabList(forkDetails)}
+            {forkDetails.map(
+              fork => (<FormattedGitTab gistDetails={fork.node} key={fork.node.id} />)
+            )}
           </TabList>
           <TabPanels>gist
-            {tabPanelList(forkDetails)}
+            {forkDetails.map(fork => <FormattedGitTabPanel gistDetails={fork.node} key={fork.node.id} />)}
           </TabPanels>
         </Tabs>
       </CardBody>

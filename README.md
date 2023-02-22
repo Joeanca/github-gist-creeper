@@ -2,7 +2,7 @@
 This project aims to query the github gists for a single user and display specific data for a specific gist as listed in the main requirements section of this readme.
 
 ## Things to note
-1. As this is a challenge, or POC, I have included some styles in the form of js files imported. Most styles are standard by the library Chakra and use for the mostpart the library defaults.
+1. As this is a challenge, or POC, I have included some styles in the form of js files imported. Most styles are standard by the library Chakra and uses for the mostpart the library defaults.
 2. The CSS is by no means something I am proud of. I chose to focus on the functionality of the program with the limited time, rather than the looks. The theory is, if the features aren't there, it doesn't matter how good it looks.
 3.  Some checks for validation of inputs and props do definitely need to be implemented. Typescript or at least proptypes would be ideal to ensure the correct use and fulfillment of structures and attributes
 

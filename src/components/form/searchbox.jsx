@@ -50,7 +50,6 @@ const SearchBox = () => {
       }),
       enabled: input.length > 3,
       refetchOnWindowFocus: false,
-      refetchOnMount: false,
       refetchOnReconnect: false,
     }
   )

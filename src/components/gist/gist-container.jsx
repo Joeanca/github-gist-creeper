@@ -12,6 +12,7 @@ const FormattedGist = memo(({gistData}) =><Gist gistData={gistData?.node || null
 const GistContainer = () => {
   const {userData} = useUserData();
   const gists = userData?.user?.gists?.edges || [];
+  const sortedGists = gists.sort((a,b) =>b.node?.forks?.totalCount - a.node?.forks?.totalCount || new Date(b.node?.createdAt) - new Date(a.node?.createdAt));
 
   if (!userData?.user) return null
   return (
@@ -22,7 +23,7 @@ const GistContainer = () => {
         {`${userData.user.login} Gists`}
       </Heading>
       <Accordion defaultIndex={[0]} allowToggle w='100%'>
-        {gists.map(
+        {sortedGists.map(
           (gistData, index) => (
             <FormattedGist key={gistData?.node?.id || index} gistData={gistData} />))
         }

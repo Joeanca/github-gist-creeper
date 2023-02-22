@@ -22,9 +22,11 @@ const Gist = ({ gistData }) => {
       <h2>
         <AccordionButton>
           <Box as="span" flex='1' textAlign='left'>
-            <Grid templateColumns='repeat(8, 1fr)'>
-              <GridItem as="span" colSpan={6} textAlign='left'>name: {gistData.name}</GridItem>
+            <Grid templateColumns='repeat(10, 1fr)'>
+              <GridItem as="span" colSpan={5} textAlign='left'>{gistData.description || 'N/A'}</GridItem>
+              <GridItem as="span" colSpan={1} textAlign='left' />
               <GridItem as="span" colSpan={2} textAlign='left'>forks: {gistData.forks.totalCount}</GridItem>
+              <GridItem as="span" colSpan={2} textAlign='left'>files: {gistData.files?.length || 0}</GridItem>
             </Grid>
           </Box>
 

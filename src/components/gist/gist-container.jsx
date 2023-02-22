@@ -1,32 +1,31 @@
 import {
   Accordion, Divider, Heading, VStack,
 } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
+import React, { memo } from 'react';
 import GithubUserAvatar from '../github-user/user';
 
 import Gist from './gist';
+import { useUserData } from '../../context/user-context';
 
-const gistList = (gists) => gists.map(
-  (gistData, index) => <Gist gistData={gistData?.node || null} key={gistData?.node?.id || index} />
-);
+const FormattedGist = memo(({gistData}) =><Gist gistData={gistData?.node || null}  />);
 
-const GistContainer = ({ userData }) => {
-  const [userGists, setUserGists] = useState([]);
-  
-  useEffect(() => {
-    setUserGists(userData?.user?.gists?.edges || []);
-  }, [userData?.id, userData?.user?.gists?.edges]);
+const GistContainer = () => {
+  const {userData} = useUserData();
+  const gists = userData?.user?.gists?.edges || [];
 
   if (!userData?.user) return null
   return (
-    <VStack>
+    <VStack w='100%'>
       <GithubUserAvatar url={userData?.user?.avatarUrl} userName={userData.user.login} bio={userData.user.bio} />
       <Divider paddingTop={2} />  
       <Heading noOfLines={1} padding={4} size='lg'>
         {`${userData.user.login} Gists`}
       </Heading>
       <Accordion defaultIndex={[0]} allowToggle w='100%'>
-        {gistList(userGists)}
+        {gists.map(
+          (gistData, index) => (
+            <FormattedGist key={gistData?.node?.id || index} gistData={gistData} />))
+        }
       </Accordion>
     </VStack>
   )

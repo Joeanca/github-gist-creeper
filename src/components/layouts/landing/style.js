@@ -1,5 +1,5 @@
 const  landingStyle = {
-  flex: {
+  flexStyle: {
     height: "100%",
     width: "100%",
     align:"center",

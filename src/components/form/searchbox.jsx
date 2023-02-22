@@ -62,7 +62,7 @@ const SearchBox = () => {
       <GridItem w='100%'>
         <FormControl  isRequired label='Please enter the github username whose GISTS you would like to see' isInvalid={!!error}>
           <FormLabel>Github username</FormLabel>
-          <Input type='text' defaultValue={input} onChange={handleInputChange} onClick={(() => {})} />
+          <Input type='text' defaultValue={input} onChange={handleInputChange} />
             <FormHelperText>
               Please enter the github username whose GISTS you would like to see
             </FormHelperText>

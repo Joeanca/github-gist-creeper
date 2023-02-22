@@ -5,7 +5,7 @@ import landingStyle from "./style";
 export default function LandingLayout(props) {
   return (
     <VStack
-      style={landingStyle.flex}
+      style={landingStyle.flexStyle}
       {...props}
       divider={<StackDivider borderColor='gray.200' />}
     >

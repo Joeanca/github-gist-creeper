@@ -12,16 +12,15 @@ import {
   AccordionPanel,
   AccordionIcon,
   Box,
-  Text,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import React, { useContext, useState } from 'react';
-import { AppContext } from '../../context/app-context';
+import { TokenContext } from '../../context/token-context';
 
 import inputStyle from './input-style';
 
 const TokenBox = () => {
-  const { token } = useContext(AppContext);
+  const { token } = useContext(TokenContext);
   const [tokenValue, setTokenValue] = token;
   const [input, setInput] = useState(tokenValue);
   

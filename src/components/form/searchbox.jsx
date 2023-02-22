@@ -1,66 +1,82 @@
 import {
   FormControl,
   FormLabel,
-  FormErrorMessage,
   FormHelperText,
   Input,
-  Flex, 
-  Button,
-  Text
+  FormErrorMessage,
+  Spinner,
+  Grid,
+  GridItem,
+  Center, 
 } from '@chakra-ui/react'
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import {useQuery} from '@tanstack/react-query';
-import { GraphQLClient, gql } from 'graphql-request'
+import { GraphQLClient } from 'graphql-request'
 
 import inputStyle from './input-style';
-import { AppContext } from '../../context/app-context';
+import { TokenContext } from '../../context/token-context';
+import { useUserData } from '../../context/user-context';
 import {userGistsWithForks} from '../../api/queries/get-user-gists.js';
 import {endpoint} from '../../constants/constants';
+import { debounce } from '../../utilities/input-utilities';
 
 const graphQLClient = new GraphQLClient(endpoint)
 
 const SearchBox = () => {
   const [input, setInput] = useState('MohamedAlaa')
-  const {token, userData} = useContext(AppContext);
+  const {token} = useContext(TokenContext);
   const [tokenValue] = token;
-  const [, setUserDataValue] = userData;
+  const  {setUserData} = useUserData();
 
   graphQLClient.setHeaders({
     authorization: `Bearer ${tokenValue}`,
   });
-  
-  const handleInputChange = (e) => setInput(e.target.value);
 
-  const { isInitialLoading, error, refetch, isFetching } = useQuery({
-    queryKey: ['repoData'],
+  const handleInputChange = debounce((e) => setInput(e.target.value), 500);
+
+  useEffect(() => {
+    setUserData(null);
+  },[input, setUserData])
+
+  const { isInitialLoading, error, isFetching } = useQuery({
+    queryKey: [input],
     queryFn: () =>
       graphQLClient.request(
         userGistsWithForks,
         {username: input}
       ).then(data => {
-        setUserDataValue(data);
+        setUserData(data);
         return data;
       }),
-      enabled: false,
+      enabled: input.length > 3,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
     }
   )
 
   if (!token) return null;
 
-  if (isInitialLoading || isFetching) return 'Loading...'
-  if (error) return 'An error has occurred: ' + error.message
-
   return (
-    <Flex style={inputStyle}>
-      <FormControl isRequired label='Please enter the github username whose GISTS you would like to see'>
-        <FormLabel>Github username</FormLabel>
-        <Input type='text' value={input} onChange={handleInputChange}/>
-          <FormHelperText>
-            Please enter the github username whose GISTS you would like to see
-          </FormHelperText>
-        <Button onClick={refetch}>Search</Button>
-      </FormControl>
-    </Flex>
+    <Grid style={inputStyle} >
+      <GridItem w='100%'>
+        <FormControl  isRequired label='Please enter the github username whose GISTS you would like to see' isInvalid={!!error}>
+          <FormLabel>Github username</FormLabel>
+          <Input type='text' defaultValue={input} onChange={handleInputChange} onClick={(() => {})} />
+            <FormHelperText>
+              Please enter the github username whose GISTS you would like to see
+            </FormHelperText>
+            <FormErrorMessage>
+              {(error && error?.response?.errors[0]?.message ) || 'an error occurred'}
+            </FormErrorMessage>
+        </FormControl>
+      </GridItem>
+      <GridItem>
+        <Center pt={4}>
+          {(isInitialLoading || isFetching) && <Spinner size='xl'  />}
+        </Center>
+      </GridItem >
+    </Grid>
   )
 };
 
